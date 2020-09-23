@@ -38,5 +38,52 @@
 .header__option {
     display: flex;
     flex-direction: column;
-    margin: 0px 10px;
+    padding: 0px 10px;
 }
+
+/****** For Mobile Device ****/
+
+@media screen and (max-width: 600px) {
+
+    .header__logo {
+        width: 60px;
+        object-fit: contain;
+        margin: 0 10px;
+        margin-top: 12px;
+    }
+
+    .header__search {
+        display: flex;
+        align-items: center;
+        border-radius: 24px;
+    }
+
+    .header__searchInput {
+        width: 40px;
+        outline-width: 0;
+    }
+
+    .header__nav {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .header__option {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 6px;
+    }
+
+    .header__optionLineOne {
+        font-weight: 300;
+        font-size: 12px;
+    }
+    
+    .header__optionLineTwo {
+        font-weight: 700;
+        font-size: 15px;
+    }
+
+  }
