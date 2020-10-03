@@ -41,6 +41,10 @@
     justify-content: space-evenly;
 }
 
+.header__nav > a {
+    text-decoration: none;
+}
+
 .header__option {
     display: flex;
     flex-direction: column;
@@ -73,7 +77,7 @@
 
 /****** For Mobile Device ****/
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
 
     .header__logo {
         width: 60px;
@@ -116,4 +120,4 @@
         font-size: 15px;
     }
 
-  }
+  } */
