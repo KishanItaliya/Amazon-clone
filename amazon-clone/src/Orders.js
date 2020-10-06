@@ -23,7 +23,6 @@ function Orders() {
                     data: doc.data()
                 })))
             ))
-
         }
         else{
             setOrders([])

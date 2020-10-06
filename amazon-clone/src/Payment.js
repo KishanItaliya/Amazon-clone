@@ -38,24 +38,29 @@ function Payment() {
         getClientSecret()
     }, [basket])
 
-    // console.log("THE SECRET IS >>>", clientSecret)
+    console.log("THE SECRET IS >>>", clientSecret)
 
     const handleSubmit = async (event) => {
-        event.preventDefault()
-        setProcessing(true)
 
-        const payload = await stripe.confirmCardPayment(clientSecret, {
+        event.preventDefault();
+        setProcessing(true);
+
+        const paymentIntent = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: elements.getElement(CardElement)
             }
         }).then(({ paymentIntent }) => {
             // paymentIntent = payment confirmation
-
-            db.collection('users').doc(user?.uid).collection('orders').doc(paymentIntent.id).set({
+            db
+                .collection('users')
+                .doc(user?.uid)
+                .collection('orders')
+                .doc(paymentIntent.id)
+                .set({
                     basket: basket,
                     amount: paymentIntent.amount,
                     created: paymentIntent.created
-            })
+                })
 
             setSucceeded(true)
             setError(null)
@@ -74,6 +79,17 @@ function Payment() {
         // and display any errors as the customer types their card details
         setDisabled(event.empty)
         setError(event.error ? event.error.message : "")
+    }
+
+    const cardElementOptions = {
+        style: {
+            base: {
+
+            },
+            invalid: {
+
+            }
+        }
     }
 
     return (
@@ -118,7 +134,7 @@ function Payment() {
                     </div>
                     <div className="payment__details">
                         <form onSubmit={handleSubmit}>
-                            <CardElement onChange={handleChange} />
+                            <CardElement onChange={handleChange} options={cardElementOptions} />
                             <div className="payment__priceContainer">
                                 <CurrencyFormat
                                     renderText={(value) => (

@@ -14,11 +14,11 @@ function Order({ order }) {
             </p>
             {order.data.basket?.map(item => (
                 <CheckoutProduct
-                    id={order.id}
-                    title={order.title}
-                    image={order.image}
-                    price={order.price}
-                    rating={order.rating}
+                    id={item.id}
+                    title={item.title}
+                    image={item.image}
+                    price={item.price}
+                    rating={item.rating}
                     hideButton
                 />
             ))}
