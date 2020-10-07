@@ -37,7 +37,7 @@
     padding-bottom: 20px;
 }
 
-.payment__details > form > div > button {
+.payment__details > form > div > button , .payment__Button{
     background: #f0c14b;
     border-radius: 2px;
     width: 100%;
@@ -46,4 +46,32 @@
     margin-top: 10px;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
+}
+
+.billingDetails {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    flex: 1;
+    border-radius: 24px;
+}
+
+.billingDetails__InputText {
+    display: flex;
+}
+
+label {
+    font-weight: 700;
+    margin-right: 20px;
+    width: 120px;
+}
+
+.billingDetails__Input {
+    height: 10px;
+    padding: 8px;
+    border: none;
+    outline-width: 0;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 5px;
+    width: 250px;
 }
